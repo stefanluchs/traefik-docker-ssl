@@ -1,0 +1,14 @@
+[entryPoints]
+  [entryPoints.web]
+    address = ":80"
+
+[entryPoints.web.http.redirections.entryPoint]
+  to = "websecure"
+  scheme = "https"
+
+[entryPoints.websecure]
+  address = ":443"
+
+[providers.docker]
+  exposedByDefault = false
+  network = "traefik-global-proxy"
